@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class ExchangeRate {
@@ -15,11 +15,11 @@ public class ExchangeRate {
     private Long id;
     private String currency;
     private BigDecimal rate;
-    private LocalDate date;
+    private Date date;
     
     protected ExchangeRate() {}
     
-	public ExchangeRate(String currency, LocalDate date, BigDecimal rate) {
+	public ExchangeRate(String currency, Date date, BigDecimal rate) {
 		this.currency = currency;
 		this.date = date;
 		this.rate = rate;
@@ -29,7 +29,7 @@ public class ExchangeRate {
 		this.currency = currency;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

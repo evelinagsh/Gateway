@@ -43,9 +43,9 @@ public class GatewayApplication {
 //			// fetch all ExchangeRates
 //			log.info("ExchangeRates found with findAll():");
 //			log.info("-------------------------------");
-			repository.findAll().forEach(ExchangeRate -> {
-				log.info(ExchangeRate.toString());
-			});
+//			repository.findAll().forEach(ExchangeRate -> {
+//				log.info(ExchangeRate.toString());
+//			});
 //			log.info("");
 //
 //			// fetch an individual ExchangeRate by ID

@@ -4,7 +4,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
@@ -38,7 +38,7 @@ public class RatesCollector {
         		 
                  exchangeRate.setCurrency(key);
                  exchangeRate.setRate(value);
-                 exchangeRate.setDate(LocalDate.now());
+                 exchangeRate.setDate(new Date());
                  
                  exchangeRateRepository.save(exchangeRate);
              }

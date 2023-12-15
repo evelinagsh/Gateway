@@ -1,5 +1,6 @@
 package com.example.gateway;
 
+import java.util.List;
 import java.util.Optional;
 
 //ExchangeRateController.java
@@ -36,6 +37,26 @@ public class ExchangeRateController {
     	 return ResponseEntity.ok(null);
      }
 
+ }
+ 
+ @PostMapping("/history")
+ public ResponseEntity<Object> getCurrencyHistory(@RequestBody ExchangeRateHistoryRequest request) {
+     if (isDuplicateRequest(request.getRequestId())) {
+         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+             .body("Duplicate request with ID: " + request.getRequestId());
+     }
+
+     List<ExchangeRate> currencyHistory = exchangeRateRepository.findByDateAfter(request.calculateStartDate());
+
+     if (!currencyHistory.isEmpty()) {
+         // Create a response object and set the accumulated data as needed
+         // Replace ExchangeRateHistoryResponse with your actual response DTO
+         ExchangeRateHistoryResponse response = new ExchangeRateHistoryResponse();
+         response.setCurrencyHistory(currencyHistory);
+         return ResponseEntity.ok(response);
+     } else {
+         return ResponseEntity.ok(null);
+     }
  }
 
  // Implement a method to check for duplicate requests
