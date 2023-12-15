@@ -1,0 +1,1 @@
+SHOW TABLE 'exchange_rate';
