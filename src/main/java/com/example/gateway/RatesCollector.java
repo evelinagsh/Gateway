@@ -16,21 +16,16 @@ public class RatesCollector {
     private final FixerIoService fixerIoService;
 
     public RatesCollector(ExchangeRateRepository exchangeRateRepository, FixerIoService fixerIoService) {
-    	
-    	 System.out.println("RatesCollector bean created with ExchangeRateRepository: " + exchangeRateRepository);
-         System.out.println("RatesCollector bean created with FixerIoService: " + fixerIoService);
-    	
         this.exchangeRateRepository = exchangeRateRepository;
         this.fixerIoService = fixerIoService;
     }
 
-    @Scheduled(cron = "0 * * * * *") // hour
+    @Scheduled(cron = "0 0 * * * *") // hour
     public void collectRates() {
     	
     	System.out.println("collectRates has been called");
 
         FixerIoResponse fixerIoResponse = fixerIoService.getLatestRates();
-
 
         if (fixerIoResponse != null) {
         	Map<String, BigDecimal> linkedHashMap = fixerIoResponse.getRates();

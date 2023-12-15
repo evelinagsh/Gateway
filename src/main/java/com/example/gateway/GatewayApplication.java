@@ -34,7 +34,7 @@ public class GatewayApplication {
 	public CommandLineRunner demo(ExchangeRateRepository repository, RatesCollector ratesCollector ) {
 		return (args) -> {
 			
-			ratesCollector.collectRates();
+//			ratesCollector.collectRates();
 			
 //			// save a few ExchangeRates
 //			repository.save(new ExchangeRate("Jack", LocalDate.now(), new BigDecimal(0.03125)));

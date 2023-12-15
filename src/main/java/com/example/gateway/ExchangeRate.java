@@ -13,7 +13,6 @@ public class ExchangeRate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String currency;
     private BigDecimal rate;
     private LocalDate date;
@@ -42,5 +41,9 @@ public class ExchangeRate {
 	@Override
 	public String toString() {
 		return this.currency + this.rate;
+	}
+
+	public BigDecimal getRate() {
+		return this.rate;
 	}
 }
