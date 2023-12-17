@@ -1,6 +1,6 @@
-#It's a Gateway app 
+# It's a Gateway app 
 This application fetches data from fixer.io and serves the data back using json and xml controllers.
-###To start the project
+### To start the project
 - rename the `example.application.properties` to `application.properties` and fill in your values.
 - run the project in your IDE 
 - make a POST request to http://localhost:8080/json_api/current 
