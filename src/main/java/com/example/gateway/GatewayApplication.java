@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Iterator;
 
 import org.springframework.boot.CommandLineRunner;
 import org.slf4j.Logger;
@@ -33,35 +34,18 @@ public class GatewayApplication {
 	@Bean
 	public CommandLineRunner demo(ExchangeRateRepository repository, RatesCollector ratesCollector ) {
 		return (args) -> {
+			//Prepare the initial data base
+			Iterable<ExchangeRate> iterable = repository.findAll();
+
+	        Iterator<ExchangeRate> iterator = iterable.iterator();
+	        boolean isEmpty = !iterator.hasNext();
+
+	        if (isEmpty) {
+	        	ratesCollector.collectRates();
+	            System.out.println("Rates collected");
+	        }
+
 			
-			//			ratesCollector.collectRates();
-			
-//			// save a few ExchangeRates
-//			repository.save(new ExchangeRate("Jack", LocalDate.now(), new BigDecimal(0.03125)));
-//
-//
-//			// fetch all ExchangeRates
-//			log.info("ExchangeRates found with findAll():");
-//			log.info("-------------------------------");
-//			repository.findAll().forEach(ExchangeRate -> {
-//				log.info(ExchangeRate.toString());
-//			});
-//			log.info("");
-//
-//			// fetch an individual ExchangeRate by ID
-//			ExchangeRate ExchangeRate = repository.findById(1L);
-//			log.info("ExchangeRate found with findById(1L):");
-//			log.info("--------------------------------");
-//			log.info(ExchangeRate.toString());
-//			log.info("");
-//
-//			// fetch ExchangeRates by last name
-//			log.info("ExchangeRate found with findByLastName('Bauer'):");
-//			log.info("--------------------------------------------");
-//			repository.findByLastName("Bauer").forEach(bauer -> {
-//				log.info(bauer.toString());
-//			});
-//			log.info("");
 		};
 	}
 }
