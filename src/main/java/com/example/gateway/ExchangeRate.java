@@ -35,15 +35,22 @@ public class ExchangeRate {
 
 	public void setRate(BigDecimal rate) {
 		this.rate = rate;
-		
 	}
 	
+	public BigDecimal getRate() {
+		return this.rate;
+	}
+
+	public String getCurrency() {
+		return this.currency;
+	}
+
+	public Date getDate() {
+		return this.date;
+	}
+
 	@Override
 	public String toString() {
 		return this.currency + this.rate;
-	}
-
-	public BigDecimal getRate() {
-		return this.rate;
 	}
 }

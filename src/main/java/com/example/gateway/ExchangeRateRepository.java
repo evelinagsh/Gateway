@@ -10,5 +10,5 @@ public interface ExchangeRateRepository extends CrudRepository<ExchangeRate, Lon
 
     Optional<ExchangeRate> findTopByCurrencyOrderByDateDesc(String currency);
 
-	List<ExchangeRate> findByDateAfter(Date date);
+	List<ExchangeRate> findByDateAfterAndCurrency(Date date, String currency);
 }

@@ -10,11 +10,7 @@ public class ExchangeRateHistoryRequest {
     private String currency;
     private int period;
 
-    // Constructors, getters, and setters
-
-    // Assuming a method to calculate the start date based on the specified period
     public Date calculateStartDate() {
-        // Subtract the specified number of hours from the request timestamp
         Date startDate = new Date(this.timestamp - period * 3600 * 1000);
         return startDate;
     }
